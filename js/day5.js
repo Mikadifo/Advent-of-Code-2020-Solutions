@@ -44,9 +44,21 @@ const decodeCols = pass => {
     return (from || to)
 }
 
-const HIGHEST_SEAT_ID = Math.max(
-    ...passes.map(pass => decodeRows(pass) * 8 + decodeCols(pass))
-)
+const SEATS_IDS = passes.map(pass => decodeRows(pass) * 8 + decodeCols(pass))
+
+const HIGHEST_SEAT_ID = Math.max(...SEATS_IDS)
+
+const findMySeatID = () => {
+    let toFindSeat = Math.min(...SEATS_IDS)
+
+    for(let seatId of SEATS_IDS) {
+	if (!SEATS_IDS.includes(toFindSeat)) 
+	    return toFindSeat
+
+	toFindSeat ++
+    }
+ }
 
 console.log(HIGHEST_SEAT_ID)
+console.log(findMySeatID())
 
