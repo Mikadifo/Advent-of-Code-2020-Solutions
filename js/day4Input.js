@@ -37,7 +37,7 @@ iyr:2023 hcl:a58381 pid:#401a29 eyr:1940
 byr:1920
 ecl:utc hgt:183cm
 
-pid:493510244 ecl:gr hgt:153cm byr:1950 cid:181 eyr:2028
+pid:493510244 ecl:gry hgt:153cm byr:1950 cid:181 eyr:2028
 hcl:#ceb3a1
 iyr:2020
 
@@ -1136,6 +1136,4 @@ iyr:2017
 cid:120 eyr:2020 hcl:#733820 ecl:blu pid:458522542 byr:1966
 
 pid:#725759
-hcl:#602927 iyr:2013 byr:2003 eyr:2023 cid:100
-y
-`
+hcl:#602927 iyr:2013 byr:2003 eyr:2023 cid:100`
