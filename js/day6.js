@@ -27,7 +27,7 @@ let yesAnswersCount = 0
 const yesAnswersReducer = (accumulator, current) =>
     accumulator.filter(answer => current.includes(answer))
 
-const test = yesAnswers => 
+const yesAnswersCounter = yesAnswers => 
     yesAnswers.reduce(yesAnswersReducer, yesAnswers[0].split('')).length
 
 const countYesAnswers = array => {
@@ -38,10 +38,7 @@ const countYesAnswers = array => {
 
 	    array.pop()
 
-	    if (array.length === 1) 
-		yesAnswersCount += array.join('').length
-	    else
-		yesAnswersCount += test(array)
+	    yesAnswersCount += yesAnswersCounter(array)
 
 	    countYesAnswers(cut)
 	}
