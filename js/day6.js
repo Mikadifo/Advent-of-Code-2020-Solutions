@@ -1,7 +1,5 @@
 import { answersInput } from './day6Input.js'
 
-const groupsAnswers = answersInput.split('\n')
-
 let groupsAnswersCount = 0
 
 const countAnswers = array => {
@@ -21,6 +19,35 @@ const countAnswers = array => {
     }
 }
 
-countAnswers(groupsAnswers)
+countAnswers(answersInput.split('\n'))
 console.log(groupsAnswersCount)
+
+let yesAnswersCount = 0
+
+const yesAnswersReducer = (accumulator, current) =>
+    accumulator.filter(answer => current.includes(answer))
+
+const test = yesAnswers => 
+    yesAnswers.reduce(yesAnswersReducer, yesAnswers[0].split('')).length
+
+const countYesAnswers = array => {
+    for (let answer of array) {
+	if (!answer) {
+	    const FROM = array.indexOf(answer) + 1
+	    const cut = array.splice(FROM, array.length)
+
+	    array.pop()
+
+	    if (array.length === 1) 
+		yesAnswersCount += array.join('').length
+	    else
+		yesAnswersCount += test(array)
+
+	    countYesAnswers(cut)
+	}
+    }
+}
+
+countYesAnswers(answersInput.split('\n'))
+console.log(yesAnswersCount)
 
